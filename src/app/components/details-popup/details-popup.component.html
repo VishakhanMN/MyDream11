@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>PLAYER DETAILS</h1>
+<div mat-dialog-content>
+  <div class="profilePic">
+    <div class="alignPic" *ngIf="getSelectedProfile.Name == 'Annan'">
+      <img class="proPic" src="../../../assets/Kriparth.jpg" alt="Annan">
+      <mat-label class="name">{{getSelectedProfile.Name}}</mat-label> 
+      <img class="logo" src="../../../assets/csk.jpg" alt="CSK">
+    </div>
+    <div class="alignPic" *ngIf="getSelectedProfile.Name == 'Rashi'">
+      <img class="proPic" src="../../../assets/Rashi.jpg" alt="Rashi">
+      <mat-label class="name">{{getSelectedProfile.Name}}</mat-label> 
+      <img class="logo" src="../../../assets/csk.jpg" alt="CSK">
+    </div>
+    <div class="alignPic" *ngIf="getSelectedProfile.Name == 'Appunni'">
+      <img class="proPic" src="../../../assets/Visakh.jpg" alt="Appunni">
+      <mat-label class="name">{{getSelectedProfile.Name}}</mat-label> 
+      <img class="logo" src="../../../assets/kkr.jpg" alt="KKR">
+    </div>
+  </div>
+  
+  <div class="detailSection">
+    <div class="firstSection">
+      <section>
+        <mat-label>Total Matches</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.Matches}}</mat-label>
+      </section>
+      <section>
+        <mat-label>Wins</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.Wins}}</mat-label>
+      </section>
+      <section>
+        <mat-label>Loss</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.Losses}}</mat-label> 
+      </section>
+      <section>
+        <mat-label>Did Not Play</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.DNP}}</mat-label> 
+      </section>
+    </div>
+    <div class="secondSection">
+      <section>
+        <mat-label>Money spent(Rs)</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.MoneySpent}}</mat-label> 
+
+      </section>
+      <section>
+        <mat-label>Prize money(Rs)</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.MoneyWon}}</mat-label> 
+      </section>
+      <section>
+        <mat-label>Highest point</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.HighestPoint}}</mat-label>  
+      </section>
+      <section>
+        <mat-label>Lowest point</mat-label>
+        <mat-label class="valueField">{{getSelectedProfile.LowestPoint}}</mat-label>   
+      </section>
+    </div>
+  </div>
+</div>

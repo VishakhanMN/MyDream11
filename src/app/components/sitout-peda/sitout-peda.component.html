@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="heading">
+      <p>DREAM 11 SITOUT PEDA</p>
+    </div>
+    <div class="contents">
+      <div class="table">
+        <div class="totalMatches">
+          <span>Total Matches played :</span>
+          <span>{{totalMatches}}</span>
+        </div>
+        <br>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Did not play</th>
+          </tr>
+          <tr>
+            <td class="highlightName" (click)="openDialog(data[0].Name)">{{data[0].Name}}</td>
+            <td>{{data[0].Wins}}</td>
+            <td>{{data[0].Losses}}</td>
+            <td>{{data[0].DNP}}</td>
+          </tr>
+          <tr>
+            <td class="highlightName" (click)="openDialog(data[1].Name)">{{data[1].Name}}</td>
+            <td>{{data[1].Wins}}</td>
+            <td>{{data[1].Losses}}</td>
+            <td>{{data[1].DNP}}</td>
+          </tr>
+          <tr>
+            <td class="highlightName" (click)="openDialog(data[2].Name)">{{data[2].Name}}</td>
+            <td>{{data[2].Wins}}</td>
+            <td>{{data[2].Losses}}</td>
+            <td>{{data[2].DNP}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="chartDetails">
+        <div class="chooseRadio">
+          <input type="radio" id="win" name="percent" (click)="setSuccessData()" value="Win %" [checked]="isChecked">
+          <label for="win">Win %</label><br>
+          <input type="radio" id="loss" name="percent" (click)="setFailureData()" value="Loss %" [checked]="!isChecked">
+          <label for="loss">Loss %</label><br>
+        </div>
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+          [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend" [colors]="chartColors">
+        </canvas>
+  
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,58 @@
+.proPic{
+    height: 130px;
+    width: 14%;
+    margin-left: 20px;
+}
+
+.logo{
+    height: 130px;
+    float: right;
+    margin-right: 20px;
+    width: 14%;
+}
+
+.name{
+    width: 72%;
+    text-align: center;
+    margin: 31%;
+}
+
+.firstSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profilePic{
+    display: flex;
+    margin-left:14px;
+    width: 100%;
+}
+
+section {
+    display: grid;
+    border: 1px solid black;
+    border-radius: 23%;
+    padding: 13px;
+    margin: 6px;
+    height: 80px;
+    width: 150px;
+}
+
+mat-label{
+    text-align: center;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+.alignPic{
+    width: 100%;
+}
