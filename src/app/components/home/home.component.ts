@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+    public pieChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
+  public pieChartData = [120, 150, 180, 90];
+  public pieChartType = 'pie' as ChartType;
+
   constructor(
     private router: Router
 
@@ -15,6 +20,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
 
   public navigateToChild(value: string): any {
     switch (value) {

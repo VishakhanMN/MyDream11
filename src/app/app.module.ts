@@ -22,7 +22,8 @@ import { CricketComponent } from './components/my-dashboard/cricket/cricket.comp
     HomeComponent,
     MyDashboardComponent,
     FootballComponent,
-    CricketComponent
+    CricketComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,7 @@ import { CricketComponent } from './components/my-dashboard/cricket/cricket.comp
     GoogleChartsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatInputModule,
+    MatInputModule
   ],
   providers: [],
   entryComponents:[DetailsPopupComponent],

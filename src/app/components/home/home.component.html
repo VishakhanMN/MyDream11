@@ -1,10 +1,124 @@
-<div class="homePage">
-    <div class="heading">
+<div class="homePage container-fluid">
+    <div class="row divideSection">
+        <div class="col-lg-2 sideTab">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="../../../assets/dream11.png" alt="Dream 11 game">
+                </div>
+                <div class="col-sm-8">
+                    <h2 class="text-white pull-left">My App</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-sm-3">
+                    <i class="bi bi-trophy text-white" style="font-size: 2rem;"></i>
+                </div>
+                <div class="col-sm-9">
+                    <h3 class="text-white ">SITOUT PEDA</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <i class="bi bi-person-circle text-white" style="font-size: 2rem;"></i>
+                </div>
+                <div class="col-sm-9">
+                    <h3 class="text-white ">MY INFO</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10">
+            <div class="row text-right">
+                <div class="col-lg-11">
+                <h2 class="text-white">VISAKH</h2>    
+                </div>
+                <div class="col-lg-1 pic">
+                    <img src="../../../assets/Vis.jpg" style="height: 50px;" alt="Visakh">
+                </div>
+            </div>
+            <div class="row">
+                <h2 class="text-white">DASHBOARD</h2>
+            </div>
+            <!-- BOXES -->
+            <div class="row">
+                <div class="col-lg-4">
+                
+                    <div class="card bg-info" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <i class="bi bi-receipt" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div class="col-md-8 text-right">
+                                    317
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-right">
+                                    MATCHES PLAYED
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-success" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <i class="bi bi-emoji-sunglasses" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div class="col-md-8 text-right">
+                                    145
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-right">
+                                    WINS
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-danger" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <i class="bi bi-emoji-frown" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div class="col-md-8 text-right">
+                                    172
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-right">
+                                    LOSSES
+                                </div>
+                            </div>
+                            
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 chart">
+                    <canvas baseChart
+                            [data]="pieChartData"
+                            [labels]="pieChartLabels"
+                            [chartType]="pieChartType"></canvas>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="heading">
         <img src="../../../assets/dream11.png" alt="Dream 11 game">
         <h2>DREAM 11</h2>
-    </div>
-    <hr>
-    <div class="icons">
+    </div> -->
+    <!-- <hr> -->
+    <!-- <div class="icons">
         <div class="personalDetail">
             <div data-role="tile" data-size="medium" data-effect="hover-zoom-right" (click)="navigateToChild('myInfo')">
                 <div class="slide-front">
@@ -32,5 +146,5 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
