@@ -9,27 +9,27 @@
                     <h2 class="text-white pull-left">My App</h2>
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-5" >
                 <div class="col-sm-3">
                     <i class="bi bi-trophy text-white" style="font-size: 2rem;"></i>
                 </div>
                 <div class="col-sm-9">
-                    <h3 class="text-white ">SITOUT PEDA</h3>
+                    <h3 class="text-white " (click)="navigateToChild('sitoutPeda')">SITOUT PEDA</h3>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" >
                 <div class="col-sm-3">
                     <i class="bi bi-person-circle text-white" style="font-size: 2rem;"></i>
                 </div>
                 <div class="col-sm-9">
-                    <h3 class="text-white ">MY INFO</h3>
+                    <h3 class="text-white" (click)="navigateToChild('myInfo')">MY INFO</h3>
                 </div>
             </div>
         </div>
         <div class="col-lg-10">
             <div class="row text-right">
                 <div class="col-lg-11">
-                <h2 class="text-white">VISAKH</h2>    
+                    <h2 class="text-white">VISAKH</h2>
                 </div>
                 <div class="col-lg-1 pic">
                     <img src="../../../assets/Vis.jpg" style="height: 50px;" alt="Visakh">
@@ -41,7 +41,7 @@
             <!-- BOXES -->
             <div class="row">
                 <div class="col-lg-4">
-                
+
                     <div class="card bg-info" style="max-width: 18rem;">
                         <div class="card-body">
                             <div class="row">
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                      </div>
+                    </div>
 
 
                 </div>
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="card bg-danger" style="max-width: 18rem;">
@@ -97,54 +97,36 @@
                                     LOSSES
                                 </div>
                             </div>
-                            
+
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 chart">
-                    <canvas baseChart
-                            [data]="pieChartData"
-                            [labels]="pieChartLabels"
-                            [chartType]="pieChartType"></canvas>
-                  </div>
+                <div class="col-md-6 pull-right chart">
+                        <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
+                        [colors]="chartColors" [options]="chartOptions" [legend]="false"
+                        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <h3>
+                            <li style="color: #00c851;">
+                                Win %
+                            </li>
+                        </h3>
+                        <h3>
+                            <li style="color: #ff3547;">
+                                 Loss %
+                            </li>
+                        </h3>
+                        
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- <div class="heading">
-        <img src="../../../assets/dream11.png" alt="Dream 11 game">
-        <h2>DREAM 11</h2>
-    </div> -->
-    <!-- <hr> -->
-    <!-- <div class="icons">
-        <div class="personalDetail">
-            <div data-role="tile" data-size="medium" data-effect="hover-zoom-right" (click)="navigateToChild('myInfo')">
-                <div class="slide-front">
-                    <img src="../../../assets/Info.jpg" class="h-100 w-100">
-                </div>
-                <div class="slide-back d-flex flex-justify-center flex-align-center p-4 op-mauve">
-                    <p class="text-center">
-                        MY INFO
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="sitoutPeda">
-            <div data-role="tile" data-size="medium" data-effect="hover-zoom-right" (click)="navigateToChild('sitoutPeda')">
-                <div class="slide-front">
-                    <img src="../../../assets/peaky.jfif" class="h-100 w-100">
-                </div>
-                <div class="slide-back d-flex flex-justify-center flex-align-center p-4 op-mauve">
-                    <p class="text-center">
-                        SITOUT PEDA
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
+   
 </div>

@@ -8,7 +8,7 @@ import { SitoutPedaComponent } from './components/sitout-peda/sitout-peda.compon
 
 const routes: Routes = [
   {path:'sitoutPeda', component:SitoutPedaComponent},
-  { path: '',   redirectTo: '/home', pathMatch: 'full' }, 
+  /* { path: '',   redirectTo: '/home', pathMatch: 'full' },  */
   {path:'home', component:HomeComponent},
   {path:'myDashboard', component:MyDashboardComponent, children:[
     {

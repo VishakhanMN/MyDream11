@@ -1,23 +1,27 @@
-<div class="container">
-    <div class="heading">
-      <p>DREAM 11 SITOUT PEDA</p>
+<div class="container-fluid homePage">
+  <div class="row">
+    <div class="col-md-12 mt-3 mb-3">
+      <div class="text-info display-4 text-center">SITOUT PEDA TROPHY</div>
     </div>
-    <div class="contents">
-      <div class="table">
-        <div class="totalMatches">
-          <span>Total Matches played :</span>
-          <span>{{totalMatches}}</span>
-        </div>
-        <br>
-        <table>
+  </div>
+  <div class="row col-md-12 text-center">
+    <div class="col-md-6">
+      <div class="col-md-12 mb-4">
+        <span class="text-white ">Total Matches played : </span>
+        <span class="text-white ">{{totalMatches}}</span>
+      </div>
+      <div class="table table-bordered">
+        <thead>
           <tr>
-            <th>Name</th>
-            <th>Wins</th>
-            <th>Losses</th>
-            <th>Did not play</th>
+            <th class="text-white text-center border-bottom-0 font-weight-lighter">Name</th>
+            <th class="text-white text-center border-bottom-0 font-weight-lighter">Wins</th>
+            <th class="text-white text-center border-bottom-0 font-weight-lighter">Losses</th>
+            <th class="text-white text-center border-bottom-0 font-weight-lighter">Did not play</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
-            <td class="highlightName" (click)="openDialog(data[0].Name)">{{data[0].Name}}</td>
+            <td class="highlightName " (click)="openDialog(data[0].Name)">{{data[0].Name}}</td>
             <td>{{data[0].Wins}}</td>
             <td>{{data[0].Losses}}</td>
             <td>{{data[0].DNP}}</td>
@@ -34,19 +38,38 @@
             <td>{{data[2].Losses}}</td>
             <td>{{data[2].DNP}}</td>
           </tr>
-        </table>
+        </tbody>
       </div>
-      <div class="chartDetails">
-        <div class="chooseRadio">
-          <input type="radio" id="win" name="percent" (click)="setSuccessData()" value="Win %" [checked]="isChecked">
+
+    </div>
+    <div class="col-md-6">
+      <div class="row col-md-12 mb-2">
+        <div class="col-md-6">
+          <input class="mr-2" type="radio" id="win" (click)="setSuccessData()" name="percent" value="Win %" [checked]="isChecked">
           <label for="win">Win %</label><br>
-          <input type="radio" id="loss" name="percent" (click)="setFailureData()" value="Loss %" [checked]="!isChecked">
-          <label for="loss">Loss %</label><br>
         </div>
-        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-          [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend" [colors]="chartColors">
-        </canvas>
-  
+          <div class="col-md-6">
+            <input class="mr-2" type="radio" (click)="setFailureData()"  id="loss" name="percent" value="Loss %" [checked]="!isChecked">
+            <label for="loss">Loss %</label><br>
+          </div>        
+
       </div>
+      <div class="row col-md-12">
+        <div class="col-md-8">
+          <div style="display: block">
+            <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
+              [colors]="chartColors" [options]="chartOptions" [legend]="false" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+        </div>
+        <div class="col-md-4">
+          Legends
+        </div>
+      </div> 
+
+
     </div>
   </div>
+
+</div>

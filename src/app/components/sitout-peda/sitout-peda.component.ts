@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 import { DetailsPopupComponent } from '../details-popup/details-popup.component';
 
 @Component({
@@ -10,30 +8,29 @@ import { DetailsPopupComponent } from '../details-popup/details-popup.component'
   styleUrls: ['./sitout-peda.component.scss']
 })
 export class SitoutPedaComponent implements OnInit {
-
-  public pieChartOptions: ChartOptions = {};
-  public pieChartLabels: Label[] = [];
-  public pieChartData: SingleDataSet = [];
-  public pieChartType: ChartType = 'doughnut';
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
+  
+  public chartType: string = 'pie';
+  public chartDatasets: Array<any>=[];
+  public chartLabels: Array<any>=[];
   public chartColors: Array<any> = [
-    { // first color
-      backgroundColor: ['yellow', 'green', 'black'],
-      borderColor: 'black',
-      pointBackgroundColor: 'rgba(225,10,24,0.2)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+    {
+      backgroundColor: ['#46BFBD', '#949FB1', '#4D5360'],
+      hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'],
+      borderWidth: 2,
     }
   ];
+
+  public chartOptions: any = {
+    responsive: true
+  };
+  public chartClicked(e: any): void { }
+  public chartHovered(e: any): void { }
   public data: any;
   public totalMatches: number = 24;
   public isChecked: boolean = true;
 
   constructor(public dialog: MatDialog) {
-    monkeyPatchChartJsTooltip();
-    monkeyPatchChartJsLegend();
+    
     
   }
 
@@ -43,7 +40,7 @@ export class SitoutPedaComponent implements OnInit {
 
   
   private initialise(): void {
-    this.pieChartLabels = ['Annan', 'Rashi', 'Appunni'];
+    this.chartLabels = ['Annan', 'Rashi', 'Appunni'];
     this.data = [{
       id: 1,
       Name: 'Annan',
@@ -73,26 +70,17 @@ export class SitoutPedaComponent implements OnInit {
     let winBPlayer;
     let winCPlayer;
     this.isChecked = true;
-    this.pieChartData = [];
-    this.pieChartOptions = {
-      title: {
-        text: 'Win %',
-        display: true,
-        fontColor: 'red',
-        fontSize: 20
-      },
-      responsive: true,
-    }
+    this.chartDatasets = [];
 
     winAPlayer = (this.data[0].Wins / (this.totalMatches - this.data[0].DNP)) * 100;
     winAPlayer = +winAPlayer.toFixed(2);
-    this.pieChartData.push(winAPlayer);
+    this.chartDatasets.push(winAPlayer);
     winBPlayer = (this.data[1].Wins / (this.totalMatches - this.data[1].DNP)) * 100;
     winBPlayer = +winBPlayer.toFixed(2);
-    this.pieChartData.push(winBPlayer);
+    this.chartDatasets.push(winBPlayer);
     winCPlayer = (this.data[2].Wins / (this.totalMatches - this.data[2].DNP)) * 100;
     winCPlayer = +winCPlayer.toFixed(2);
-    this.pieChartData.push(winCPlayer);
+    this.chartDatasets.push(winCPlayer);
 
   }
 
@@ -100,27 +88,18 @@ export class SitoutPedaComponent implements OnInit {
     let winAPlayer;
     let winBPlayer;
     let winCPlayer;
-    this.pieChartData = [];
+    this.chartDatasets = [];
     this.isChecked = false;
-    this.pieChartOptions = {
-      title: {
-        text: 'Loss %',
-        display: true,
-        fontColor: 'red',
-        fontSize: 20
-      },
-      responsive: true,
-    }
 
     winAPlayer = (this.data[0].Losses / (this.totalMatches - this.data[0].DNP)) * 100;
     winAPlayer = +winAPlayer.toFixed(2);
-    this.pieChartData.push(winAPlayer);
+    this.chartDatasets.push(winAPlayer);
     winBPlayer = (this.data[1].Losses / (this.totalMatches - this.data[1].DNP)) * 100;
     winBPlayer = +winBPlayer.toFixed(2);
-    this.pieChartData.push(winBPlayer);
+    this.chartDatasets.push(winBPlayer);
     winCPlayer = (this.data[2].Losses / (this.totalMatches - this.data[2].DNP)) * 100;
     winCPlayer = +winCPlayer.toFixed(2);
-    this.pieChartData.push(winCPlayer);
+    this.chartDatasets.push(winCPlayer);
   }
 
   public openDialog(name:string): void {

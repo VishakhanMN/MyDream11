@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +8,27 @@ import { ChartType } from 'chart.js';
 })
 export class HomeComponent implements OnInit {
 
-    public pieChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
-  public pieChartData = [120, 150, 180, 90];
-  public pieChartType = 'pie' as ChartType;
+  public chartType: string = 'doughnut';
+
+  public chartDatasets: Array<any> = [
+    { data: [45.7,54.3], label: 'Variation Chart' }
+  ];
+
+  public chartLabels: Array<any> = ['Win %', 'Lose %'];
+
+  public chartColors: Array<any> = [
+    {
+      backgroundColor: ['#00c851','#ff3547' ],
+      hoverBackgroundColor: ['#00c851','#ff3547'],
+      borderWidth: 3,
+    }
+  ];
+
+  public chartOptions: any = {
+    responsive: true
+  };
+  public chartClicked(e: any): void { }
+  public chartHovered(e: any): void { }
 
   constructor(
     private router: Router

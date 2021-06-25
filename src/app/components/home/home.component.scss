@@ -8,21 +8,6 @@ img{
     border-radius: 35%;
 }
 
-
-.heading{
-    padding: 40px 0px 0px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.icons {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 25px;
-}
-
 .sideTab{
     background-color: #353935;
 }
@@ -32,7 +17,12 @@ img{
 }
 
 canvas{
-    height: 291px !important;
-    width: 569px !important;
+    height: 270px !important;
+    width: 270px !important;
+}
+
+.chart{
+    display: flex;
+    flex-direction: row-reverse;
 }
 
