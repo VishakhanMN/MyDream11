@@ -14,8 +14,8 @@ export class SitoutPedaComponent implements OnInit {
   public chartLabels: Array<any>=[];
   public chartColors: Array<any> = [
     {
-      backgroundColor: ['#46BFBD', '#949FB1', '#4D5360'],
-      hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'],
+      backgroundColor: ['dodgerblue', 'magenta', 'yellowgreen'],
+      /* hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'], */
       borderWidth: 2,
     }
   ];
@@ -27,11 +27,11 @@ export class SitoutPedaComponent implements OnInit {
   public chartHovered(e: any): void { }
   public data: any;
   public totalMatches: number = 24;
-  public isChecked: boolean = true;
+  public isSelectedWin: boolean = false;
+  public isSelectedLoose: boolean = false;
 
   constructor(public dialog: MatDialog) {
-    
-    
+  
   }
 
   ngOnInit(): void {
@@ -62,14 +62,15 @@ export class SitoutPedaComponent implements OnInit {
       Losses: 11,
       DNP: 0
     }];
-    this.setSuccessData();
+      this.setSuccessData();
   }
 
   public setSuccessData(): void {
     let winAPlayer;
     let winBPlayer;
     let winCPlayer;
-    this.isChecked = true;
+    this.isSelectedWin = true;
+    this.isSelectedLoose = !this.isSelectedWin;
     this.chartDatasets = [];
 
     winAPlayer = (this.data[0].Wins / (this.totalMatches - this.data[0].DNP)) * 100;
@@ -89,7 +90,8 @@ export class SitoutPedaComponent implements OnInit {
     let winBPlayer;
     let winCPlayer;
     this.chartDatasets = [];
-    this.isChecked = false;
+    this.isSelectedLoose = true;
+    this.isSelectedWin = !this.isSelectedLoose;
 
     winAPlayer = (this.data[0].Losses / (this.totalMatches - this.data[0].DNP)) * 100;
     winAPlayer = +winAPlayer.toFixed(2);

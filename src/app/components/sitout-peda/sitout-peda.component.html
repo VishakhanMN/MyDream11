@@ -1,6 +1,9 @@
 <div class="container-fluid homePage">
-  <div class="row">
-    <div class="col-md-12 mt-3 mb-3">
+  <div class="row ">
+    <div class="col-md-1 mt-2 mb-5">
+      <i class="bi bi-house-door-fill text-white" style="font-size: 2rem;"></i>
+    </div>
+    <div class="col-md-11 mt-2 mb-5">
       <div class="text-info display-4 text-center">SITOUT PEDA TROPHY</div>
     </div>
   </div>
@@ -21,22 +24,22 @@
         </thead>
         <tbody>
           <tr>
-            <td class="highlightName " (click)="openDialog(data[0].Name)">{{data[0].Name}}</td>
-            <td>{{data[0].Wins}}</td>
-            <td>{{data[0].Losses}}</td>
-            <td>{{data[0].DNP}}</td>
+            <td style="color: dodgerblue; cursor: pointer;" (click)="openDialog(data[0].Name)">{{data[0].Name}}</td>
+            <td style="color: dodgerblue; ">{{data[0].Wins}}</td>
+            <td style="color: dodgerblue; ">{{data[0].Losses}}</td>
+            <td style="color: dodgerblue; ">{{data[0].DNP}}</td>
           </tr>
           <tr>
-            <td class="highlightName" (click)="openDialog(data[1].Name)">{{data[1].Name}}</td>
-            <td>{{data[1].Wins}}</td>
-            <td>{{data[1].Losses}}</td>
-            <td>{{data[1].DNP}}</td>
+            <td style="color: magenta; cursor: pointer;" (click)="openDialog(data[1].Name)">{{data[1].Name}}</td>
+            <td style="color: magenta; ">{{data[1].Wins}}</td>
+            <td style="color: magenta; ">{{data[1].Losses}}</td>
+            <td style="color: magenta; ">{{data[1].DNP}}</td>
           </tr>
           <tr>
-            <td class="highlightName" (click)="openDialog(data[2].Name)">{{data[2].Name}}</td>
-            <td>{{data[2].Wins}}</td>
-            <td>{{data[2].Losses}}</td>
-            <td>{{data[2].DNP}}</td>
+            <td style="color: yellowgreen; cursor: pointer;" (click)="openDialog(data[2].Name)">{{data[2].Name}}</td>
+            <td style="color: yellowgreen;">{{data[2].Wins}}</td>
+            <td style="color: yellowgreen;">{{data[2].Losses}}</td>
+            <td style="color: yellowgreen;">{{data[2].DNP}}</td>
           </tr>
         </tbody>
       </div>
@@ -44,19 +47,17 @@
     </div>
     <div class="col-md-6">
       <div class="row col-md-12 mb-2">
-        <div class="col-md-6">
-          <input class="mr-2" type="radio" id="win" (click)="setSuccessData()" name="percent" value="Win %" [checked]="isChecked">
-          <label for="win">Win %</label><br>
+        <div class="col-md-4 card-body  mr-2" style="cursor: pointer;" [ngClass]="{'bg-success': isSelectedWin,'bg-info':!isSelectedWin}" (click)="setSuccessData()">
+          <label class="text-white lead" for="win">Win %</label><br>
         </div>
-          <div class="col-md-6">
-            <input class="mr-2" type="radio" (click)="setFailureData()"  id="loss" name="percent" value="Loss %" [checked]="!isChecked">
-            <label for="loss">Loss %</label><br>
+          <div class="col-md-4 card-body"  style="cursor: pointer;" [ngClass]="{'bg-success': isSelectedLoose,'bg-info':!isSelectedLoose}" (click)="setFailureData()">
+            <label class="text-white lead" for="loss">Loss %</label><br>
           </div>        
 
       </div>
       <div class="row col-md-12">
         <div class="col-md-8">
-          <div style="display: block">
+          <div >
             <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
               [colors]="chartColors" [options]="chartOptions" [legend]="false" (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)">
@@ -64,7 +65,11 @@
           </div>
         </div>
         <div class="col-md-4">
-          Legends
+          <ul class="text-left">
+            <li style="color: dodgerblue;">ANNAN</li>
+            <li style="color: magenta;">RASHI</li>
+            <li style="color: yellowgreen;">APPUNNI</li>
+          </ul>
         </div>
       </div> 
 
